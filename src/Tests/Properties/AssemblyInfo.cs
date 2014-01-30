@@ -5,12 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: InternalsVisibleTo("Tests")]
-[assembly: AssemblyTitle("NServiceBus.SLR")]
+[assembly: AssemblyTitle("Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ADP - Dealer Services")]
-[assembly: AssemblyProduct("NServiceBus.SLR")]
+[assembly: AssemblyProduct("Tests")]
 [assembly: AssemblyCopyright("Copyright © ADP - Dealer Services 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c4436b9f-bf51-497b-9076-848a4a0edd20")]
+[assembly: Guid("2cda7ae6-516e-4706-95bf-830ff85bb912")]
 
 // Version information for an assembly consists of the following four values:
 //
