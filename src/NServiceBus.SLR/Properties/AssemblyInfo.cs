@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("NServiceBus.SLR")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ADP - Dealer Services")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NServiceBus.SLR")]
-[assembly: AssemblyCopyright("Copyright © ADP - Dealer Services 2014")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
