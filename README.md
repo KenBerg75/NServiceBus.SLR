@@ -6,7 +6,7 @@ A plugin to NServiceBus that allows configuration of Second Level Retries based 
 
 Configuration Options
 ---------------------
-We can specify these options for any exception type that may be thrown by our handler. We are commonly refering to these options as RetryAttemptSettings
+We can specify these options for any exception type that may be thrown by our handler. We are commonly referring to these options as RetryAttemptSettings
 
 Number of retries - Defines the number of Second Level Retry attempts made for messages throwing this particular exception.
 					This is defined with the As(int) method
