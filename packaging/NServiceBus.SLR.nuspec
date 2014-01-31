@@ -6,7 +6,7 @@
     <title>NServiceBus.SLR</title>
     <authors>Ken Berg</authors>
     <owners>Ken Berg</owners>
-	<projectUrl>https://github.com/KenBerg75/NServiceBus.SRL</projectUrl>
+	<projectUrl>https://github.com/KenBerg75/NServiceBus.SLR</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Allows for the fluent configuration of second level retries by exception type in NServiceBus</description>
 	<tags>NServiceBus, SLR</tags>

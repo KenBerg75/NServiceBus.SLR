@@ -1,0 +1,88 @@
+﻿<h1>NServiceBus.SRL</h1>
+
+<p>A plugin to NServiceBus that allows configuration of Second Level Retries based on the Exception Type.</p>
+
+<h2>Configuration Options</h2>
+
+<p>We can specify these options for any exception type that may be thrown by our handler. We are commonly refering to these options as RetryAttemptSettings</p>
+
+<p>Number of retries - Defines the number of Second Level Retry attempts made for messages throwing this particular exception.<br/>
+                    This is defined with the As(int) method</p>
+
+<p>Incrementing      - Defines the TimeSpan by which we increment subsequent retries for this message<br/>
+                    This is defines with the IncrementingEachBy(TimeSpan) method</p>
+
+<h2>Registration with NServiceBus</h2>
+
+<p>The package is set up to be automatically pulled into NServiceBus and register itself.</p>
+
+<h2>How to Configure</h2>
+
+<p>Once we pull the package into our endpoint project, we can configure our SLR's within the endpoint configuration like so:</p>
+
+<pre><code>    public class EndpointConfig : IConfigureThisEndpoint, AsA_Server, IWantCustomInitialization
+    {
+        public void Init()
+        {
+            Define.Retries.For&lt;DivideByZeroException&gt;().As(5).IncrementingEachBy(TimeSpan.FromSeconds(5));              
+
+            // Other NServiceBus Configuration
+
+        }
+    }
+</code></pre>
+
+<p>This defines a SLR for a DivideByZeroException, defining 5 retries for this exception, incrementing each retry by 5 seconds.</p>
+
+<h2>Global SLR Configuration</h2>
+
+<p>The global configuration will apply to any exception which is not specifically defined. This acts as the default.<br/>
+We can change the default in a couple different ways:</p>
+
+<p>By defining a rule for the System.Exception:</p>
+
+<pre><code>    public class EndpointConfig : IConfigureThisEndpoint, AsA_Server, IWantCustomInitialization
+    {
+        public void Init()
+        {
+            Define.Retries.For&lt;Exception&gt;().As(3).IncrementingEachBy(TimeSpan.FromSeconds(1));              
+
+            // Other NServiceBus Configuration
+
+        }
+    }
+</code></pre>
+
+<p>By using the Default:</p>
+
+<pre><code>    public class EndpointConfig : IConfigureThisEndpoint, AsA_Server, IWantCustomInitialization
+    {
+        public void Init()
+        {
+            Define.Retries.Default.As(3).IncrementingEachBy(TimeSpan.FromMinutes(1));               
+
+            // Other NServiceBus Configuration
+
+        }
+    }
+</code></pre>
+
+<h2>Disabling SLR by exception:</h2>
+
+<p>You can also disable SLR for a particular exception. This is useful if you have a default set, but for some particular exception you do not want to retry.<br/>
+This is done like so:</p>
+
+<pre><code>    public class EndpointConfig : IConfigureThisEndpoint, AsA_Server, IWantCustomInitialization
+    {
+        public void Init()
+        {
+            Define.Retries.Default.As(3).IncrementingEachBy(TimeSpan.FromMinutes(1));               
+            Define.Retries.For&lt;System.DivideByZeroException&gt;().Disable();
+
+            // Other NServiceBus Configuration
+
+        }
+    }
+</code></pre>
+
+<p>This will enable a default SLR configuration, yet disable SLR for a System.DivideByZeroException</p>
