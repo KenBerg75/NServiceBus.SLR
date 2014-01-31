@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NServiceBus.SLR</id>
+    <version>1.0.0</version>
+    <title>NServiceBus.SLR</title>
+    <authors>Ken Berg</authors>
+    <owners>Ken Berg</owners>
+	<projectUrl>https://github.com/KenBerg75/NServiceBus.SRL</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Allows for the fluent configuration of second level retries by exception type in NServiceBus</description>
+	<tags>NServiceBus, SLR</tags>
+    <dependencies>
+	  <dependency id="NServiceBus" version="4.3.3" />
+	  <dependency id="NServiceBus.Interfaces" version="4.3.3" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="..\src\NServiceBus.SLR\bin\Release\NServiceBus.SLR.dll" target="lib\net40\" />
+  </files>
+</package>
+
+
+
