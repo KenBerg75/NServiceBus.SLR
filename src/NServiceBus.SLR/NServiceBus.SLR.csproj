@@ -53,6 +53,7 @@
     <Compile Include="RetryAttemptSettings.cs" />
     <Compile Include="RetryManager.cs" />
     <Compile Include="RetrySettings.cs" />
+    <Compile Include="Version.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
