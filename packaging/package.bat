@@ -33,5 +33,5 @@ IF %build%==true (
 %nuget% pack %nuspec% -Verbosity detailed -OutputDirectory %nupackLocation% -Properties Configuration=%configuration% 
 
 IF %deploy%==true (
-	%nuget% push %nupackLocation%\*.nupkg -s http://%deployLocation%/ -NonInteractive
+	%nuget% push %nupackLocation%\*.nupkg 
 )
