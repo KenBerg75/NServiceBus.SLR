@@ -2,7 +2,6 @@
 set msbuild=%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MsBuild.exe
 set nuget=..\src\.nuget\NuGet.exe
 set nuspec=NServiceBus.SLR.nuspec
-set deployLocation=nuget.ds.adp.com:80/api/v2/package
 set nupackLocation=%~dp0\nuget
 set configuration=Release
 set deploy=false
@@ -24,14 +23,14 @@ GOTO Loop
 
 :: -----------------------------------------------------------------
 rmdir /s /q %nupackLocation%
-mkdir packaging\nuget
+mkdir %nupackLocation%
 echo
 
 IF %build%==true (
 	%msbuild% ..\src\NServiceBus.SLR.sln /property:Configuration=%configuration% /verbosity:quiet
 )
 
-%nuget% pack %nuspec% -Verbosity detailed -OutputDirectory packaging\nuget -Properties Configuration=%configuration% 
+%nuget% pack %nuspec% -Verbosity detailed -OutputDirectory %nupackLocation% -Properties Configuration=%configuration% 
 
 IF %deploy%==true (
 	%nuget% push %nupackLocation%\*.nupkg -s http://%deployLocation%/ -NonInteractive
